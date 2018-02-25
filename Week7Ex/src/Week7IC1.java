@@ -21,7 +21,7 @@ public class Week7IC1 {
 		}
 		catch ( Exception excError )
 		{
-			// Display Error Message
+			// Display Error Message if needed
 			System.out.println( excError.getMessage());
 		}
 	}

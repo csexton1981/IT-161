@@ -19,7 +19,7 @@ public class FMyFirstForm extends JFrame
 {
 	// ----------------------------------------------------------------------
 	// Name: FMain
-	// Abstract: the default constructor
+	// Abstract: this is the default constructor
 	// ----------------------------------------------------------------------
 
 		public FMyFirstForm( )
