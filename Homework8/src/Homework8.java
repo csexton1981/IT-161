@@ -15,7 +15,7 @@ public class Homework8
 			{ 
 				
 				//FMain #1
-				FMyFirstForm frmMain1 = new FMyFirstForm( );
+				FMain1 frmMain1 = new FMain1( );
 				frmMain1.setVisible( true );
 				
 			}
