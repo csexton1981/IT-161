@@ -1,5 +1,5 @@
 // Name: Christopher Sexton
-// Date: 2/26/18
+// Date: 2/26/2018
 // Abstract: My First Form
 
 //----------------------------------------------------------------------
@@ -19,8 +19,8 @@ public class FMyFirstForm extends JFrame
 	// ----------------------------------------------------------------------
 	public FMyFirstForm( )
 	{
-		// int intHeight = 1495;
-		// int intWidth = 1500;
+		int intHeight = 1495;
+		int intWidth = 1500;
 
 		//set Title
 
