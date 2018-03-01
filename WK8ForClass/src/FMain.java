@@ -14,16 +14,18 @@ import Utilities.*;
 import java.sql.*;						// All things SQL
 
 
-@SuppressWarnings("serial")
-public class FMain extends JFrame
+@SuppressWarnings({"serial", "unused"})
+public class FMain extends JFrame implements ActionListener
 {
 
 	// Declare variables in the order that they appear
-	//TG- private JButton m_btnOpenDatabaseConnection = null;
-	//TG- private JButton m_btnLoadTeamsList = null;
-	//TG- private JButton m_btnCloseDatabaseConnection = null;
+	private JButton m_btnOpenDatabaseConnection = null;
+	private JButton m_btnLoadTeamsList = null;
+	private JButton m_btnCloseDatabaseConnection = null;
 	
+	// Properties 
 	private Connection m_conAdministrator = null;
+	private CListBox m_lstTeams = null; 
 	
 	// ----------------------------------------------------------------------
 	// ----------------------------------------------------------------------
@@ -63,7 +65,7 @@ public class FMain extends JFrame
 			int intWidth = 295;
 	
 			// Title
-			setTitle( "WK8IC - Intro to Databases" );
+			setTitle( "Homework 10 - Intro to Databases" );
 	
 			// Size
 			setSize( intWidth, intHeight );
@@ -98,13 +100,13 @@ public class FMain extends JFrame
 			this.setLayout( null );
 	
 			// Open Button
-			
+			m_btnOpenDatabaseConnection		= CUtilities.AddButton( this, this, "Open Database Connection", 20, 20, 35, 250 );
 			// Load Teams Button
-			
+			m_btnLoadTeamsList 				= CUtilities.AddButton( this,  this,  "Load Teams List",  65,  20,  35, 250 );
 			// Teams List
-			
-			// Close
-			
+			m_lstTeams						= CUtilities.AddListBox( this,  110,  20,  280, 250 );
+			// Close 
+			m_btnCloseDatabaseConnection 	= CUtilities.AddButton( this,  this,  "Close Database Connection",  400,  20,  35, 250);
 			
 		}
 		catch( Exception excError )
@@ -125,11 +127,11 @@ public class FMain extends JFrame
 		{
 			// VB.Net Event Procedure Names: <Control Name>_<Event Type>
 				// Check if user clicked on Open Connection
-				//TG- if( aeSource.getSource( ) == m_btnOpenDatabaseConnection ) 	btnOpenDatabaseConnection2_Click( );
+				if( aeSource.getSource( ) == m_btnOpenDatabaseConnection ) 	btnOpenDatabaseConnection2_Click( );
 				// Check if user clicked on Load Teams 
-				//TG- if ( aeSource.getSource( ) == m_btnLoadTeamsList ) btnLoadTeamsList_Click( );
+				if ( aeSource.getSource( ) == m_btnLoadTeamsList ) btnLoadTeamsList_Click( );
 				// Check if user clicked on Close Database 	
-				//TG- if( aeSource.getSource( ) == m_btnCloseDatabaseConnection ) 	btnCloseDatabaseConnection_Click( );
+				if( aeSource.getSource( ) == m_btnCloseDatabaseConnection ) 	btnCloseDatabaseConnection_Click( );
 		}
 		catch( Exception excError )
 		{
@@ -188,4 +190,72 @@ public class FMain extends JFrame
 			CUtilities.WriteLog( excError );
 		}
 	}
-}
+	
+	private void btnLoadTeamsList_Click( )
+	{
+		try
+		{
+			String strSelect = "";
+			Statement sqlCommand = null;
+			ResultSet rstTTeams = null;
+			String strTeam = "";
+			
+			// Clear list to avoid dupe entry
+			m_lstTeams.Clear( );
+			
+			// Build the SQL string 
+			strSelect = "SELECT strTeam"
+					+ " FROM TTeams"
+					+ " ORDER BY strTeam";
+			
+			// Retrieve all the records
+			sqlCommand = m_conAdministrator.createStatement( );
+			rstTTeams = sqlCommand.executeQuery( strSelect );
+			
+			// Loop through all the records
+			while( rstTTeams.next ( ) == true )
+			{
+				// Get name from the current row, which should be the first, and only, column
+				strTeam = rstTTeams.getString( 1 );
+				
+				// Add the item to the list (0 = id, strTeam = text to display, false = don't start)
+				m_lstTeams.AddItemToList( 0, strTeam, false );
+			}
+			
+			// Clean up
+			rstTTeams.close ( );
+			sqlCommand.close( );
+			}
+					catch( Exception excError )
+		
+		//Display Error Message
+		CUtilities.WriteLog( ExcError );
+		}
+	
+// ---------------------------------
+
+	public void btnCloseDatabaseConnection_Click( )
+	{ 
+		try
+		{
+			// Is there a connection object?
+			if( m_conAdministrator != null )
+			{
+				//Yes, close the connection if not closed already
+				if( m_conAdministrator.isClosed( ) == false)
+				{
+					m_conAdministrator.close( );
+					
+					// Prevent JVM from crashing
+					m_conAdministrator = null;
+				}
+			}
+			catch( Exception excError )
+			{
+				// Display Error Message
+				CUtilities.WriteLog( excError );
+			}
+			
+		}
+		}
+	}
