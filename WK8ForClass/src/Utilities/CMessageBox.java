@@ -1,3 +1,4 @@
+package Utilities;
 // ----------------------------------------------------------------------
 // Name: CMessageBox
 // Class: A wrapper for the JOptionPane stuff to emulate the wonderful
@@ -39,13 +40,16 @@
 // ----------------------------------------------------------------------
 // Package
 // ----------------------------------------------------------------------
-package Utilities;
+
 
 
 // ----------------------------------------------------------------------
 // Imports
 // ----------------------------------------------------------------------
 import javax.swing.*;			// JOptionPane
+
+import CUtilities;
+
 import java.awt.Component;
 
 

@@ -1,3 +1,4 @@
+package Utilities;
 // ----------------------------------------------------------------------
 // Name: Pat Callahan
 // Class: CTextBox
@@ -7,7 +8,7 @@
 // ----------------------------------------------------------------------
 // Package
 // ----------------------------------------------------------------------
-package Utilities;
+
 
 
 // ----------------------------------------------------------------------
@@ -16,6 +17,8 @@ package Utilities;
 import java.awt.event.*;			// FocusListener
 import javax.swing.*;				// JEverything
 import javax.swing.text.*;			// PlainDocument
+
+import CUtilities;
 
 // ----------------------------------------------------------------------
 // Name: CTextBox

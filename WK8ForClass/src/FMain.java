@@ -1,7 +1,8 @@
-// ----------------------------------------------------------------------
-// Name: FMain
-// Abstract: Homework #10 - Database Programming #1 - Open, Load, Close
-// ----------------------------------------------------------------------
+// --------------------------------------------------------------------------------
+// Name: Christopher Sexton
+// Class: IT-161 Java #1
+// Abstract: FMain - This is Homework 10
+// --------------------------------------------------------------------------------// ----------------------------------------------------------------------
 
 
 // ----------------------------------------------------------------------
@@ -205,8 +206,8 @@ public class FMain extends JFrame implements ActionListener
 			
 			// Build the SQL string 
 			strSelect = "SELECT strTeam"
-					+ " FROM TTeams"
-					+ " ORDER BY strTeam";
+					  + " FROM TTeams"
+					  + " ORDER BY strTeam";
 			
 			// Retrieve all the records
 			sqlCommand = m_conAdministrator.createStatement( );
@@ -227,11 +228,11 @@ public class FMain extends JFrame implements ActionListener
 			sqlCommand.close( );
 			}
 					catch( Exception excError )
-		
+		{
 		//Display Error Message
-		CUtilities.WriteLog( ExcError );
+		CUtilities.WriteLog( excError );
 		}
-	
+	}
 // ---------------------------------
 
 	public void btnCloseDatabaseConnection_Click( )
@@ -242,7 +243,7 @@ public class FMain extends JFrame implements ActionListener
 			if( m_conAdministrator != null )
 			{
 				//Yes, close the connection if not closed already
-				if( m_conAdministrator.isClosed( ) == false)
+				if( m_conAdministrator.isClosed( ) == false )
 				{
 					m_conAdministrator.close( );
 					
@@ -250,12 +251,12 @@ public class FMain extends JFrame implements ActionListener
 					m_conAdministrator = null;
 				}
 			}
+		}
 			catch( Exception excError )
 			{
 				// Display Error Message
 				CUtilities.WriteLog( excError );
 			}
 			
-		}
 		}
 	}
