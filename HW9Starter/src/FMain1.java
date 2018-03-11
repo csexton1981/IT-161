@@ -266,7 +266,7 @@ public class FMain1 extends JFrame implements ActionListener
 	{
 		try
 		{
-			CMessageBox.Show( "You clicked button #1", "Click Event" );
+			CMessageBox.Show( "You clicked button #1.  SLOW CLAP.", "Click Event" );
 		}
 		catch( Exception excError )
 		{
@@ -284,7 +284,7 @@ public class FMain1 extends JFrame implements ActionListener
 	{
 		try
 		{
-			CMessageBox.Show( "You clicked button #2", "Click Event" );
+			CMessageBox.Show( "You clicked button #2.  SLOW CLAP.", "Click Event" );
 		}
 		catch( Exception excError )
 		{
@@ -302,7 +302,7 @@ public class FMain1 extends JFrame implements ActionListener
 	{
 		try
 		{
-			CMessageBox.Show( "You clicked button #3", "Click Event" );
+			CMessageBox.Show( "Good for you, you clicked button #3.  SLOW CLAP.", "Click Event" );
 		}
 		catch( Exception excError )
 		{
@@ -320,7 +320,7 @@ public class FMain1 extends JFrame implements ActionListener
 	{
 		try
 		{
-			CMessageBox.Show( "You clicked button Plus", "Click Event" );
+			CMessageBox.Show( "Yippie Skippy! You clicked button Plus", "Click Event" );
 		}
 		catch( Exception excError )
 		{
@@ -359,7 +359,7 @@ public class FMain1 extends JFrame implements ActionListener
 	{
 		try
 		{
-			CMessageBox.Show( "You clicked button #5", "Click Event" );
+			CMessageBox.Show( "You're halfway to 10...you clicked button #5", "Click Event" );
 		}
 		catch( Exception excError )
 		{
@@ -377,7 +377,7 @@ public class FMain1 extends JFrame implements ActionListener
 	{
 		try
 		{
-			CMessageBox.Show( "You clicked button #6", "Click Event" );
+			CMessageBox.Show( "You clicked button #6.  ", "Click Event" );
 		}
 		catch( Exception excError )
 		{
@@ -395,7 +395,7 @@ public class FMain1 extends JFrame implements ActionListener
 	{
 		try
 		{
-			CMessageBox.Show( "You clicked button Minus", "Click Event" );
+			CMessageBox.Show( "Ooohhh...You clicked button Minus.  You're about to do some subtraction!", "Click Event" );
 		}
 		catch( Exception excError )
 		{
@@ -416,7 +416,7 @@ public class FMain1 extends JFrame implements ActionListener
 	{
 		try
 		{
-			CMessageBox.Show( "You clicked button #7", "Click Event" );
+			CMessageBox.Show( "You clicked button lucky #7", "Click Event" );
 		}
 		catch( Exception excError )
 		{
@@ -434,7 +434,7 @@ public class FMain1 extends JFrame implements ActionListener
 	{
 		try
 		{
-			CMessageBox.Show( "You clicked button #8", "Click Event" );
+			CMessageBox.Show( "Congrats!  You clicked button #8", "Click Event" );
 		}
 		catch( Exception excError )
 		{
@@ -470,7 +470,7 @@ public class FMain1 extends JFrame implements ActionListener
 	{
 		try
 		{
-			CMessageBox.Show( "You clicked button Multiply", "Click Event" );
+			CMessageBox.Show( "It's getting large! You clicked button Multiply", "Click Event" );
 		}
 		catch( Exception excError )
 		{
@@ -491,7 +491,7 @@ public class FMain1 extends JFrame implements ActionListener
 	{
 		try
 		{
-			CMessageBox.Show( "You clicked button #0", "Click Event" );
+			CMessageBox.Show( "You may have clicked button #0, but you're not a zero in my book!", "Click Event" );
 		}
 		catch( Exception excError )
 		{
@@ -527,7 +527,7 @@ public class FMain1 extends JFrame implements ActionListener
 	{
 		try
 		{
-			CMessageBox.Show( "You clicked button Divide", "Click Event" );
+			CMessageBox.Show( "You clicked button Divide.  Just don't divide by Zero!", "Click Event" );
 		}
 		catch( Exception excError )
 		{
