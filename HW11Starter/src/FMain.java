@@ -18,7 +18,7 @@ import java.sql.*;						// All things SQL
 
 
 @SuppressWarnings({ "serial", "unused" })
-public class FMain extends JFrame implements ActionListener
+public class FMain extends JFrame implements ActionListener, WindowListener
 {
 	// ----------------------------------------------------------------------
 	// ----------------------------------------------------------------------
@@ -93,6 +93,9 @@ public class FMain extends JFrame implements ActionListener
 	
 			// Exit application close (instead of just hiding/visible = false)
 			setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+			
+			// Listen for window events
+			this.addWindowListener( this );
 		}
 		catch( Exception excError )
 		{
@@ -131,8 +134,107 @@ public class FMain extends JFrame implements ActionListener
 		}
 	}
 	
+	// ----------------------------------------------------------------------
+	// Name: WindowListener
+	// ----------------------------------------------------------------------	
+	public void windowOpened( WindowEvent weSource )
+	{
+		try
+		{
+			// We are busy
+			CUtilities.SetBusyCursor( this, true );
+
+			// Can we connect to the database?
+			if( CDatabaseUtilities.OpenDatabaseConnectionMSAccessJRE8( ) == false )
+			{
+				
+				// No, warn the user ...
+				CMessageBox.Show( "Database connection error.\n" +
+								  "The application will close.\n", 
+								  getTitle( ) + " Error" );
+
+				
+				// and close the form/application
+				this.dispose( );
+			}
+		}
+		catch( Exception excError )
+		{
+			// Display Error Message
+			CUtilities.WriteLog( excError );
+		}
+		finally
+		{
+			// We are NOT busy
+			CUtilities.SetBusyCursor( this, false );
+		}
+	}		
 	
 	
+	// ----------------------------------------------------------------------
+	// Name: windowClosed
+	// Abstract: Close the connection to the database
+	//			Triggered when this.dispose( ) but NOT by clicking X button
+	//			in the Window Title Bar
+	// ----------------------------------------------------------------------
+	public void windowClosed( WindowEvent weSource )
+	{
+		try
+		{
+			CleanUp( );
+		}
+		catch( Exception excError )
+		{
+			// Display Error Message
+			CUtilities.WriteLog( excError );
+		}
+	}
+
+	
+	// ----------------------------------------------------------------------
+	// Name: windowClosing
+	// Abstract: Close the connection to the database
+	//			Triggered clicking X button in the Window Title Bar
+	//			but NOT by this.dispose( )
+	// ----------------------------------------------------------------------
+	public void windowClosing( WindowEvent weSource )
+	{
+		try
+		{
+			CleanUp( );
+		}
+		catch( Exception excError )
+		{
+			// Display Error Message
+			CUtilities.WriteLog( excError );
+		}
+	}
+
+	// ----------------------------------------------------------------------
+	// Name: CleanUp
+	// Abstract: Close the connection to the database
+	// ----------------------------------------------------------------------
+	public void CleanUp( )
+	{
+		try
+		{
+			CDatabaseUtilities.CloseDatabaseConnection( );
+		}
+		catch( Exception excError )
+		{
+			// Display Error Message
+			CUtilities.WriteLog( excError );
+		}
+	}
+
+
+	// Don't care
+	public void windowActivated( WindowEvent weSource ) { }
+	public void windowDeactivated( WindowEvent weSource ) { }
+	public void windowIconified( WindowEvent weSource ) { }
+	public void windowDeiconified( WindowEvent weSource ) { }	
+	
+
 	// ----------------------------------------------------------------------
 	// Name: actionPerformed
 	// Abstract: Event handler for control click events
