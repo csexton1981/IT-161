@@ -1,5 +1,7 @@
+package Utilities;
 // ----------------------------------------------------------------------
-// Name: Pat Callahan
+// Author Name: Pat Callahan
+// Student Name: Christopher Sexton
 //		Email: Patrick.Callahan At CincinnatiState Dot edu
 //		Phone: 513-569-1751
 // Class: CUtilities.  May be freely used by any of my students.
@@ -14,7 +16,7 @@
 // ----------------------------------------------------------------------
 // Package
 // ----------------------------------------------------------------------
-package Utilities;
+
 
 
 // ----------------------------------------------------------------------
@@ -25,7 +27,7 @@ import java.util.*;			// Date
 import java.io.*;			// BufferedReader
 import java.awt.*;			// All kinds of stuff: container, window, etc
 import java.awt.event.*;	// ActionListener
-import javax.swing.*;		// JEverything
+import javax.swing.*;		// JEverythix;
 
 
 
