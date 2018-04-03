@@ -1,0 +1,9 @@
+2018/04/02 08:40:05 - FMain.actionPerformed(FMain.java:251)
+	FMain.btnLoadTeamsList_Click(FMain.java:335)
+null
+2018/04/02 08:40:24 - FMain.actionPerformed(FMain.java:251)
+	FMain.btnLoadTeamsList_Click(FMain.java:335)
+null
+2018/04/02 10:01:33 - FMain.windowOpened(FMain.java:154)
+	Utilities.CDatabaseUtilities.OpenDatabaseConnection(CDatabaseUtilities.java:277)
+No suitable driver found for jdbc:ucanaccess://C:\Users\sextonc\git\Homework11\Database\TeamsAndPlayers1.accdb
